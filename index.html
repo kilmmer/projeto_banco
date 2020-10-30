@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Banco</title>
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <main>
+                <h2>Escolha a opção:</h2>
+                <hr>
+                <div class="row" id="row_buttons">
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-primary" onclick="saldo()">Consultar saldo</button>
+                    </div>
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-primary" onclick="depositar()">Depositar</button>
+                    </div>
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-primary" onclick="sacar()">Sacar</button>
+                    </div>
+                </div>
+            </main>
+            <section id="saldo" style="display: none">
+                <h2>Saldo: </h2>
+                <h3>
+                    <saldo></saldo>
+                </h3>
+                <div>
+                    <button type="button" class="btn btn-primary" onclick="menu()">Menu</button>
+                </div>
+            </section>
+            <section id="depositar" style="display: none">
+                <h2>Depósito</h2>
+                <div class="row">
+                    <div class="col-5">
+                        
+                        <label class="" for="valor_deposito">Informe o valor do depósito:</label>
+                        <div class="input-group">
+                            <div class="input-group-text">R$</div>
+                            <input type="text" class="form-control" id="valor_deposito" onkeyup="k(this)" autocomplete="off" placeholder="00,00">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary" onclick="menu()">Menu</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary" onclick="deposito()">Depositar</button>
+                    </div>
+                </div>
+            </section>
+            <section id="sacar" style="display: none;">
+                <h2>Sacar</h2>
+                <div class="row">
+                    <div class="col-5">
+                        <label class="" for="valor_saque">Informe o valor do saque:</label>
+                        <div class="input-group">
+                            <div class="input-group-text">R$</div>
+                            <input type="text" class="form-control" id="valor_saque" onkeyup="k(this)" autocomplete="off" placeholder="00,00">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary" onclick="menu()">Menu</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary" onclick="saque()">Sacar</button>
+                    </div>
+                </div>
+            </section>
+            <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="true" data-animation="true", data-delay="3000">
+                <div class="toast-header">
+                    <strong class="mr-auto">Mensagem</strong>
+                    <button type="button" class="btn-close" data-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div>
+        </div>
+        <script src="bootstrap.bundle.min.js" async defer></script>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+*, *:active, *:focus {
+    outline: none !important;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 15px;
+    width: 200px;
+    height: 55px;
+}
+main, section {
+    margin-top: 10px;
+}
+#row_buttons {
+    display: inline-flex
+}
+input {
+    width: 200px;
+    border-bottom: 2px solid;
+}
+
+.toast {
+    position: absolute;
+    left: 44%;
+    bottom: 10px;
+    width: 500px;
+}
