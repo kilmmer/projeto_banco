@@ -3,7 +3,7 @@ const saque_negativo = false
 
 function saldo(){
     document.querySelector("main").style.display = "none"
-    document.querySelector("#saldo saldo").textContent = formatar(saldo_total)
+    document.querySelector("#saldo #valor_saldo").value = formatar(saldo_total, false)
     document.querySelector("#saldo").style.display = 'block'
 }
 function sacar(){
@@ -11,25 +11,25 @@ function sacar(){
     document.querySelector("#sacar").style.display = 'block'
 }
 function saque(){
-    let valor = document.querySelector("#valor_saque").value
+    let valor = document.querySelector("#valor_saque").value.replace(',', '.')
     if(!valor){
         alert('Atenção! \nInforme o valor à ser sacado.')
         return false
     } else {
         if(saldo_total == 0){
-            alert("Atenção! \nSem saldo na conta.")
+            triggerToast("Atenção! \nSem saldo na conta.", 'bg-danger')
             return false
         }
 
-        if(saque_negativo == false){
-            if(valor > saldo_total){
-                alert("Atenção! \nSaldo insuficiente.")
+        if(saque_negativo === false){
+            if(valor.replace(",", ".") > saldo_total){
+                triggerToast("Saldo insuficiente.", 'bg-danger')
                 return false
             }
         }
     }
     saldo_total -= parseFloat(valor.replace(',','.'))
-    triggerToast("Saque efetuado com sucesso!")
+    triggerToast("Saque efetuado com sucesso!", 'bg-success')
     menu()
 }
 function depositar(){
@@ -39,20 +39,19 @@ function depositar(){
 function deposito(){
     let valor = document.querySelector("#valor_deposito").value
     if(!valor){
-        alert('Atenção!\nInforme o valor à ser depositado.')
+        triggerToast('Informe o valor à ser depositado.', 'bg-warning')
         return false
     }
     saldo_total += parseFloat(valor.replace(',','.'))
-    triggerToast("Depósito efetuado com sucesso!")
+    triggerToast("Depósito efetuado com sucesso!", 'bg-success')
     menu()
 }
-function formatar(valor){
-    const formatter = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL' 
-    })
-    const formatted = formatter.format(valor);
-    return formatted
+function formatar(valor, mask = true){
+    if(mask){
+        return new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(valor)
+    } else {
+        return new Intl.NumberFormat('pt-BR', {style: 'decimal', minimumFractionDigits: 2}).format(valor)
+    }
 }
 function menu() {
     document.querySelectorAll('section').forEach(element => {
@@ -63,11 +62,19 @@ function menu() {
     })
     document.querySelector("main").style.display = ""
 }
-function triggerToast(content = null){
+function triggerToast(content = null, type = "bg-success"){
+    const toast = document.querySelector('.toast')
     if(content != null){
         document.querySelector(".toast .toast-body").innerHTML = content
     }
-    new bootstrap.Toast(document.querySelector('.toast'), {autohide: true, animation: true, delay: 3000}).show()
+    
+    toast.classList.add(type)
+    
+    new bootstrap.Toast(toast, {autohide: true, animation: true, delay: 3000}).show()
+    
+    toast.addEventListener('hidden.bs.toast', function () {
+        toast.classList.remove(type)
+    })
 }
 function k(i) {
 	var v = i.value.replace(/\D/g,'');

@@ -6,7 +6,7 @@ button {
     border: none;
     outline: none;
     padding: 15px;
-    width: 200px;
+    
     height: 55px;
 }
 main, section {
@@ -20,11 +20,12 @@ input {
     border-bottom: 2px solid;
 }
 
-.toast {
-    position: absolute;
-    left: 36.5%;
-    bottom: 30px;
-    width: 500px;
+.toast-success {
     background-color: green;
+    color: #fff;
+}
+
+.toast-error {
+    background-color: red;
     color: #fff;
 }
