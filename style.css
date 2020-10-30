@@ -23,6 +23,8 @@ input {
 .toast {
     position: absolute;
     left: 37%;
-    bottom: 10px;
+    bottom: 30px;
     width: 500px;
+    background-color: green;
+    color: #fff;
 }
