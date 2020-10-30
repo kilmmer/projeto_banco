@@ -13,7 +13,7 @@ function sacar(){
 function saque(){
     let valor = document.querySelector("#valor_saque").value.replace(',', '.')
     if(!valor){
-        alert('Atenção! \nInforme o valor à ser sacado.')
+        triggerToast('Informe o valor à ser sacado.', 'bg-warning')
         return false
     } else {
         if(saldo_total == 0){
