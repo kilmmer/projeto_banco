@@ -29,3 +29,9 @@ input {
     background-color: red;
     color: #fff;
 }
+
+#extratos {
+    max-height: 800px;
+    background-color: rgb(250, 250, 250)
+    
+}

@@ -14,25 +14,27 @@
     <body>
         <div class="container">
             <main>
-                <h2>Escolha a opção:</h2>
+                <h2>Escolha a opção</h2>
                 <hr>
                 <div class="row">
-                    <div class="col-sm-4 col-xs-12 mb-3">
+                    <div class="col-sm-3 col-xs-12 mb-3">
                         <button type="button" class="btn btn-primary btn-block" onclick="saldo()">Consultar saldo</button>
                     </div>
-                    <div class="col-sm-4 col-xs-12 mb-3">
+                    <div class="col-sm-3 col-xs-12 mb-3">
                         <button type="button" class="btn btn-primary btn-block" onclick="depositar()">Depositar</button>
                     </div>
-                    <div class="col-sm-4 col-xs-12 mb-3">
+                    <div class="col-sm-3 col-xs-12 mb-3">
                         <button type="button" class="btn btn-primary btn-block" onclick="sacar()">Sacar</button>
+                    </div>
+                    <div class="col-sm-3 col-xs-12 mb-3">
+                        <button type="button" class="btn btn-primary btn-block" onclick="extrato()">Extrato</button>
                     </div>
                 </div>
             </main>
             <section id="saldo" style="display: none">
-                
+                <h2>Saldo</h2>
                 <div class="row">
                     <div class="col-md-3 col-xs-12 col-sm-12">
-                        <label class="" for="valor_saque">Saldo:</label>
                         <div class="input-group">
                             <div class="input-group-text border-white">R$</div>
                             <input type="text" class="form-control-plaintext form-control" readonly id="valor_saldo">
@@ -69,7 +71,7 @@
                 </div>
             </section>
             <section id="sacar" style="display: none;">
-                <h2>Sacar</h2>
+                <h2>Saque</h2>
                 <div class="row">
                     <div class="col-md-3 col-xs-12 col-sm-12">
                         <label class="" for="valor_saque">Informe o valor do saque:</label>
@@ -84,6 +86,19 @@
                     <div class="col-sm-3 col-xs-12 mb-3">
                         <button type="button" class="btn btn-primary btn-block" onclick="saque()">Sacar</button>
                     </div>
+                    <div class="col-sm-3 col-xs-12 mb-3">
+                        <button type="button" class="btn btn-secondary btn-block" onclick="menu()">Voltar</button>
+                    </div>
+                </div>
+            </section>
+            <section id="extrato" style="display: none">
+                <h2>Extrato</h2>    
+                <br>
+                <div class="row" id="extratos">
+
+                </div>
+                <hr>
+                <div class="row">
                     <div class="col-sm-3 col-xs-12 mb-3">
                         <button type="button" class="btn btn-secondary btn-block" onclick="menu()">Voltar</button>
                     </div>
