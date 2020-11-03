@@ -30,7 +30,6 @@ function saque(){
         }
     }
 
-    console.log(moeda2float(valor))
     saldo_total -= moeda2float(valor)
     _movimentos(novoMovimento('Saque', valor))
     triggerToast("Saque efetuado com sucesso!", 'bg-success')
